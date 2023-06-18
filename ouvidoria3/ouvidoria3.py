@@ -40,3 +40,37 @@ while opcao != 8:
             print(len(ocorrencias))
             for ocorrencia in ocorrencias:
                 print('codigo', str(ocorrencia[0]), '-', ocorrencia[1], '-', ocorrencia[2])
+
+    elif opcao == 3:
+        print()
+        titulo = input('Digite a titulo da manifestação: ')
+        descricao = input('Digite a descricao da manifestação: ')
+        tipo = input('Digite o tipo da manifestação (reclamação, elogio ou sugestão): ')
+        autor = input('Digite o autor da manifestação: ')
+        sqlInsercao = 'insert into ocorrencias (titulo,descricao,tipo,autor) values(%s,%s,%s,%s)'
+        valores = [titulo, descricao, tipo, autor]
+        insertNoBancoDados(conexao, sqlInsercao, valores)
+        print('Reclamação cadastrada com sucesso. ')
+
+
+    elif opcao == 4:
+        print()
+        consultaListagem = 'select count(*) from ocorrencias'
+        resultado =  listarBancoDados(conexao,consultaListagem)
+        quantidade =  resultado [0][0]
+        print(  'Quantidade de Manifestações:', str(quantidade))
+
+        consultareclamacoes = "select count(*) from ocorrencias where tipo = 'reclamação'"
+        resultado = listarBancoDados(conexao, consultareclamacoes)
+        quantidadeReclamacoes = resultado[0][0]
+        print('Quantidade de reclamações:', str(quantidadeReclamacoes))
+
+        consultarSugestoes = "select count(*) from ocorrencias where tipo = 'sugestão'"
+        resultado = listarBancoDados(conexao, consultarSugestoes)
+        quantidadeSugestoes = resultado[0][0]
+        print('Quantidade de sugestões:', str(quantidadeSugestoes))
+
+        consultarElogios = "select count(*) from ocorrencias where tipo = 'elogio'"
+        resultado = listarBancoDados(conexao, consultarElogios)
+        quantidadeElogios = resultado[0][0]
+        print('Quantidade de elogios:', str(quantidadeElogios))
