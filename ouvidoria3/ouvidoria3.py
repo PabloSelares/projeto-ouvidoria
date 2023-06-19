@@ -100,3 +100,19 @@ while opcao != 8:
         atualizarBancoDados(conexao, sqlAtualizar, valores)
         print('Alteração feita com sucesso')
 
+    elif opcao == 7:
+        print()
+        codigo = input('Digite o codigo da manifestação: ')
+        consultaListagem = 'delete from ocorrencias where codigo = %s '
+        dados = [codigo]
+        excluirBancoDados(conexao, consultaListagem, dados)
+        print('Manifestação excluida com sucesso!')
+
+
+    elif opcao != 8:
+        print()
+        print('Opção inválida')
+
+    encerrarBancoDados(conexao)
+    print('Obrigado por usar o sistema!')
+
