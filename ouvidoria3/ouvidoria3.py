@@ -109,10 +109,5 @@ while opcao != 8:
         print('Manifestação excluida com sucesso!')
 
 
-    elif opcao != 8:
-        print()
-        print('Opção inválida')
 
-    encerrarBancoDados(conexao)
-    print('Obrigado por usar o sistema!')
 
