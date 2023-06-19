@@ -107,7 +107,11 @@ while opcao != 8:
         dados = [codigo]
         excluirBancoDados(conexao, consultaListagem, dados)
         print('Manifestação excluida com sucesso!')
+    
+    elif opcao != 8:
+        print()
+        print('Opção inválida')
 
-
-
+encerrarBancoDados(conexao)
+print('Obrigado por usar o sistema!')
 
