@@ -1,4 +1,4 @@
-CREATE TABLE ouvidoria3 (
+CREATE TABLE ocorrencias (
    codigo int AUTO_INCREMENT,
     titulo varchar (100),
     descricao varchar (1000),
@@ -7,4 +7,4 @@ CREATE TABLE ouvidoria3 (
     primary key (codigo)
 );
 
-select* from ouvidoria3
+select* from ocorrencias
